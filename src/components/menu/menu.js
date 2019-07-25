@@ -9,10 +9,10 @@ const Menu = () => (
       Blog
     </Link>
     <Link to="/about" activeClassName="active">
-      About me
+      About
     </Link>
     <Link to="/contact" activeClassName="active">
-      Contact me
+      Contact
     </Link>
   </StyledMenu>
 );

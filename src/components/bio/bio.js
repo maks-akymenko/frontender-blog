@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import { Emoji } from 'src/utils/Emoji'
+import { Emoji } from 'src/styles/Emoji'
 
 import { Flex, BioParagraph } from './bio.styled';
 
@@ -42,10 +42,10 @@ const Bio = () => {
         }}
       />
       <BioParagraph>
-        Written by <strong>{author}</strong>, frontend developer based in Krakow, Poland <Emoji label="polish flag">🇵🇱</Emoji>.
+        Created and designed by <strong>{author}</strong>, frontend developer based in Krakow, Poland <Emoji label="polish flag">🇵🇱</Emoji>.
         {` `}
         <a target='_blank' rel='noopener noreferrer' href={`https://linkedin.com/in/${social.linkedin}`}>
-          Feel free to contact me <Emoji label="hugging face">🤗</Emoji>
+          Feel free to contact me
         </a>
       </BioParagraph>
     </Flex>

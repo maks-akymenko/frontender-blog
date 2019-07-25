@@ -1,20 +1,40 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import { ThemeProvider } from 'styled-components';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyles, theme } from 'src/utils/globalStyles';
+import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/globalStyles'
+import { Toggle } from 'src/components'
+import { Emoji } from 'src/styles/Emoji'
+import { isMainPath } from 'src/utils'
+import { DARK_THEME, LIGHT_THEME } from 'src/shared/constants'
 
 import { Container, Footer, Header } from './layout.styled'
-import { Emoji } from 'src/utils/Emoji';
 
 const Layout = ({ location, title, children }) => {
-  const isRootPath = location.pathname === `${__PATH_PREFIX__}/`;
-  const isAboutPath = location.pathname === `${__PATH_PREFIX__}/about`;
-  const isContactPath = location.pathname === `${__PATH_PREFIX__}/contact`;
+  const [currentTheme, setCurrentTheme] = useState(lightTheme)
+
+  useEffect(() => {
+    if (localStorage.getItem('theme') === DARK_THEME) {
+      setCurrentTheme(darkTheme)
+    } else {
+      setCurrentTheme(lightTheme)
+    }
+  }, [])
+
+  const handleTheme = () => {
+    if (currentTheme === lightTheme) {
+      setCurrentTheme(darkTheme)
+      localStorage.setItem('theme', DARK_THEME)
+    } else {
+      setCurrentTheme(lightTheme)
+      localStorage.setItem('theme', LIGHT_THEME)
+    }
+  }
+
   let header
 
-  if (isRootPath || isAboutPath || isContactPath) {
+  if (isMainPath(location)) {
     header = (
       <Header>
         <Link to="/">
@@ -33,18 +53,18 @@ const Layout = ({ location, title, children }) => {
       </Header>
     )
   }
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={currentTheme}>
       <Container>
         <GlobalStyles />
+        <Toggle handleTheme={handleTheme} activeTheme={currentTheme.type} />
         <header>{header}</header>
         <main>{children}</main>
         <Footer>
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Maks Akymenko. Made with
           {` `}
-          <a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org">Gatsby</a>
-          {` `}
-          <span>and with <Emoji label="heart">❤️</Emoji>to frontend</span>
+          <span>and with <Emoji label="heart">💛</Emoji></span>
         </Footer>
       </Container>
     </ThemeProvider>
