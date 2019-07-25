@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "animate.css": "^3.7.2",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.13.34",
     "gatsby-image": "^2.2.6",
@@ -28,6 +29,7 @@
     "gatsby-transformer-sharp": "^2.2.4",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "styled-components": "^4.3.2"
