@@ -66,25 +66,23 @@ export const pageQuery = graphql`
 // styled-components
 const BlogPost = styled.div`
   margin: 3.5rem 0;
+  padding: 0.5rem;
 `
 
 const Date = styled.small`
   color: ${({ theme }) => theme.primaryGrey};
-
   text-transform: uppercase;
 `
 
 const Title = styled.h3`
   font-size: 2.25rem;
   letter-spacing: 0.15rem;
-
   margin: 0;
 
   a {
     color: ${({ theme }) => theme.primaryYellow};
     text-transform: uppercase;
     text-decoration: underline;
-
     transition: color 0.3s ease-in;
 
     &:hover {
