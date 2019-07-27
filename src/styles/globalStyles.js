@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const darkTheme = {
+  mobile: '576px',
   ff: "'Nunito', sans-serif",
   type: 'dark',
   primaryDark: '#0C0F13',
@@ -18,6 +19,7 @@ export const darkTheme = {
 };
 
 export const lightTheme = {
+  mobile: '576px',
   ff: "'Nunito', sans-serif",
   type: 'light',
   primaryDark: '#FFF',

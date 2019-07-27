@@ -42,11 +42,13 @@ const About = ({ location }) => {
           </Note>
           <Description>
             What else? I could probably call myself a writer <Emoji label="writer">📝</Emoji>, I certainly am if you are here in my blog reading this!
-            <Description>
-              I travel a lot, can't imagine a month without going somewhere <Emoji label="planet">🗺</Emoji>, and I do love technologies in all their kinds. Hi <Emoji label="hi">👋🏼</Emoji>, smart houses, biohacking and self-driving cars! <Emoji label="car">🚗</Emoji>
-            </Description>
+          </Description>
+          <Description>
+            I travel a lot, can't imagine a month without going somewhere <Emoji label="planet">🗺</Emoji>, and I do love technologies in all their kinds. Hi <Emoji label="hi">👋🏼</Emoji>, smart houses, biohacking and self-driving cars! <Emoji label="car">🚗</Emoji>
+          </Description>
+          <Description>
             If you read up until this point, it's time for a small bonus <Emoji label="present">🎁</Emoji>:
-            </Description>
+          </Description>
         </ScrollAnimation>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
           <Description bold>
@@ -110,6 +112,11 @@ const Note = styled.div`
   color: ${({ theme }) => theme.primaryLight};
   background: ${({ theme }) => theme.formGrey};
   border-radius: 5px;
+  text-align: center;
+
+  @media (min-width: ${({ theme }) => theme.mobile}) {
+    text-align: left;
+  }
   `
 
 const List = styled.ul`
