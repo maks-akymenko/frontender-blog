@@ -45,7 +45,7 @@ const Bio = () => {
         Created and designed by <strong>{author}</strong>, frontend developer based in Krakow, Poland <Emoji label="polish flag">🇵🇱</Emoji>.
         {` `}
         <a target='_blank' rel='noopener noreferrer' href={`https://linkedin.com/in/${social.linkedin}`}>
-          Feel free to contact me
+          Say hello <Emoji label="hello">👋🏼</Emoji>
         </a>
       </BioParagraph>
     </Flex>
