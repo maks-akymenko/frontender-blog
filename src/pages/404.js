@@ -1,22 +1,28 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { Layout, SEO } from 'src/components'
 
-class NotFoundPage extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
+import { Emoji } from 'src/styles/Emoji'
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="404: Not Found" />
-        <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-      </Layout>
-    )
-  }
+const NotFoundPage = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="404: Not Found" />
+      <Title>Not Found</Title>
+      <Text>You just hit a route that doesn&#39;t exist...</Text>
+      <Text>But now worries, that's the right time to grab some tea
+        {' '}
+        <Emoji label="tea">🍵</Emoji>and read.
+      </Text>
+      <Button>
+        <Link to="/">Read something good</Link>
+      </Button>
+    </Layout>
+  )
 }
 
 export default NotFoundPage
@@ -28,5 +34,33 @@ export const pageQuery = graphql`
         title
       }
     }
+  }
+`
+
+const Title = styled.h1`
+  font-size: 2rem;
+`
+
+const Text = styled.p`
+  font-size: 1.1rem;
+`
+
+const Button = styled.div`
+  max-width: 15rem;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  border-radius: 90px;
+  text-align: center;
+  background: ${({ theme }) => theme.primaryYellow};
+  transition: background 0.3s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ theme }) => theme.primaryYellowHover};
+  }
+
+  a {
+    color: ${({ theme }) => theme.primaryDark};
+    text-decoration: none;
   }
 `
