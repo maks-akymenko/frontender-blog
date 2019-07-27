@@ -145,7 +145,7 @@ export const Wrapper = styled.div`
       background-color: ${({ theme }) => theme.blue};
 
       &:before {
-        color: ${({ theme }) => theme.blue};
+        color: ${({ theme }) => theme.primaryYellow};
       }
 
       &:after {

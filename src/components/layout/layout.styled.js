@@ -12,6 +12,7 @@ export const Header = styled.h1`
   font-size: ${({ small }) => small ? '1.5rem' : '2.5rem'};
   font-weight: normal;
   text-align: ${({ small }) => small ? 'left' : 'center'};
+  color: ${({ theme }) => theme.primaryYellow};
 
   padding-top: 1rem;
   margin: 0;

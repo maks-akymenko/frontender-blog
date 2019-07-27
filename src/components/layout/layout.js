@@ -7,20 +7,22 @@ import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/globalStyles'
 import { Toggle } from 'src/components'
 import { Emoji } from 'src/styles/Emoji'
 import { isMainPath } from 'src/utils'
-import { DARK_THEME, LIGHT_THEME } from 'src/shared/constants'
+import { DARK_THEME, LIGHT_THEME, CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
 
 import { Container, Footer, Header } from './layout.styled'
 
 const Layout = ({ location, title, children }) => {
-  const [currentTheme, setCurrentTheme] = useState(lightTheme)
+  const [currentTheme, setCurrentTheme] = useState(
+    localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
+  )
 
   useEffect(() => {
-    if (localStorage.getItem('theme') === DARK_THEME) {
-      setCurrentTheme(darkTheme)
-    } else {
+    if (localStorage.getItem('theme') === LIGHT_THEME) {
       setCurrentTheme(lightTheme)
+    } else {
+      setCurrentTheme(darkTheme)
     }
-  }, [])
+  }, currentTheme)
 
   const handleTheme = () => {
     if (currentTheme === lightTheme) {
@@ -32,15 +34,30 @@ const Layout = ({ location, title, children }) => {
     }
   }
 
+  const pickEmoji = title => {
+    let emoji
+    switch (title) {
+      case ABOUT_PATH:
+        emoji = <Emoji label="me">🙋🏻‍♂</Emoji>
+        break
+      case CONTACT_PATH:
+        emoji = <Emoji label="detective">🕵🏻‍♂️</Emoji>
+        break
+      default:
+        emoji = <Emoji label="programmer">👨🏻‍💻</Emoji>
+        break
+    }
+
+    return emoji
+  }
+
   let header
 
   if (isMainPath(location)) {
     header = (
       <Header>
-        <Link to="/">
-          {title}
-          <Emoji label="programmer">👨🏻‍💻</Emoji>
-        </Link>
+        {title}
+        {pickEmoji(title)}
       </Header>
     )
   } else {
@@ -64,7 +81,7 @@ const Layout = ({ location, title, children }) => {
         <Footer>
           © {new Date().getFullYear()}, Maks Akymenko. Made with
           {` `}
-          <span>and with <Emoji label="heart">💛</Emoji></span>
+          <Emoji label="heart">💛</Emoji>
         </Footer>
       </Container>
     </ThemeProvider>
