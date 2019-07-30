@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import Image from 'gatsby-image'
 import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/globalStyles'
@@ -9,9 +10,27 @@ import { Emoji } from 'src/styles/Emoji'
 import { isMainPath } from 'src/utils'
 import { DARK_THEME, LIGHT_THEME, CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
 
-import { Container, Footer, Header } from './layout.styled'
+import { Container, DesktopOnly, Footer, Header } from './layout.styled'
 
 const Layout = ({ location, title, children }) => {
+  const img = useStaticQuery(graphql`
+  query imgQuery {
+    me: file(absolutePath: { regex: "/max-max.png/" }) {
+      childImageSharp {
+        fixed(height: 300) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`)
+
+  const imgStyle = {
+    position: 'fixed',
+    bottom: 0,
+    right: 0,
+  }
+
   const [currentTheme, setCurrentTheme] = useState(
     localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
   )
@@ -73,17 +92,26 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <Container>
-        <GlobalStyles />
-        <Toggle handleTheme={handleTheme} activeTheme={currentTheme.type} />
-        <header>{header}</header>
-        <main>{children}</main>
-        <Footer>
-          © {new Date().getFullYear()}, Maks Akymenko. Made with
+      <>
+        <DesktopOnly>
+          <Image
+            fixed={img.me.childImageSharp.fixed}
+            alt="Maks image"
+            style={imgStyle}
+          />
+        </DesktopOnly>
+        <Container>
+          <GlobalStyles />
+          <Toggle handleTheme={handleTheme} activeTheme={currentTheme.type} />
+          <header>{header}</header>
+          <main>{children}</main>
+          <Footer>
+            © {new Date().getFullYear()}, Maks Akymenko. Made with
           {` `}
-          <Emoji label="heart">💛</Emoji>
-        </Footer>
-      </Container>
+            <Emoji label="heart">💛</Emoji>
+          </Footer>
+        </Container>
+      </>
     </ThemeProvider>
   )
 }

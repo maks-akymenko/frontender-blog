@@ -27,3 +27,11 @@ export const Header = styled.h1`
 export const Footer = styled.footer`
   text-align: center;
 `
+
+export const DesktopOnly = styled.div`
+  display: none;
+
+  @media screen and (min-width: ${({ theme }) => theme.desktop}) {
+    display: block;
+  }
+`
