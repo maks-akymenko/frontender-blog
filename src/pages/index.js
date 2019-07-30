@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link, graphql } from "gatsby"
 
 import { Bio, Layout, Menu, SEO } from 'src/components'
+import { Emoji } from 'src/styles/Emoji'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -18,7 +19,13 @@ const BlogIndex = ({ data, location }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <BlogPost key={node.fields.slug}>
-              <Date>{node.frontmatter.date}</Date>
+              <Flex>
+                <Date>{node.frontmatter.date}</Date>
+                <ReadingTime>
+                  <Emoji label="sand clock">⏳</Emoji>
+                  {node.fields.readingTime.text}
+                </ReadingTime>
+              </Flex>
               <Title>
                 <Link to={node.fields.slug}>
                   {title}
@@ -52,6 +59,9 @@ export const pageQuery = graphql`
           excerpt
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
@@ -95,3 +105,13 @@ const Description = styled.p`
   font-size: 1.1rem;
 `
 
+const ReadingTime = styled.small`
+  color: ${({ theme }) => theme.primaryGrey};
+  font-weight: bold;
+`
+
+const Flex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`

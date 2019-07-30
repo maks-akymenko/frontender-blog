@@ -3,9 +3,12 @@ import { Link, graphql } from "gatsby"
 
 import { Bio, BuyMeACoffee, Layout, SEO } from "src/components"
 
-import { Arrows, BackButton, Date, Description, Title } from './blog-post.styled'
+import { Arrows, BackButton, Date, Description, Flex, ReadingTime, Title } from './blog-post.styled'
+
+import { Emoji } from 'src/styles/Emoji'
 
 const BlogPostTemplate = ({ data, location, pageContext: { previous, next } }) => {
+  console.log(data);
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
 
@@ -22,11 +25,17 @@ const BlogPostTemplate = ({ data, location, pageContext: { previous, next } }) =
         {post.frontmatter.title}
       </Title>
       <hr />
-      <Date>
-        {post.frontmatter.date}
-      </Date>
+      <Flex>
+        <Date>
+          {post.frontmatter.date}
+        </Date>
+        <ReadingTime>
+          <Emoji label="time">⏳</Emoji>
+          {post.fields.readingTime.text}
+        </ReadingTime>
+      </Flex>
       <Description dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr/>
+      <hr />
       <Bio />
       <BuyMeACoffee />
       <Arrows>
@@ -67,6 +76,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+      fields {
+        readingTime {
+          text
+        }
       }
     }
   }

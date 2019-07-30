@@ -51,3 +51,12 @@ export const Arrows = styled.ul`
     font-weight: bold;
   }
 `
+
+export const ReadingTime = styled.div`
+  font-size: 1rem;
+`
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
