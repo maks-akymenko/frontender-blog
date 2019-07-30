@@ -65,7 +65,7 @@ const About = ({ location }) => {
         </ScrollAnimation>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
           <Description bold>
-            Applications I use:
+            Mobile apps I use:
             </Description>
           <List>
             <li><span>Notion</span>. Like to keep my goals, useful links, plans and articles in one place.</li>

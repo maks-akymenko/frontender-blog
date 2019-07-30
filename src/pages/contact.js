@@ -44,7 +44,7 @@ const Contact = ({ location }) => {
           <Emoji label="businessman">🤵</Emoji>
         </a>
         <a target="_blank" rel="noreferrer noopener" href="https://www.codewars.com/users/maximakymenko">
-          CodeWars
+          Codewars
           {' '}
           <Emoji label="ninja">🦹🏽‍♂️</Emoji>
         </a>
