@@ -48,6 +48,16 @@ const Contact = ({ location }) => {
           {' '}
           <Emoji label="ninja">🦹🏽‍♂️</Emoji>
         </a>
+        {/* <a target="_blank" rel="noreferrer noopener" href="https://www.codewars.com/users/maximakymenko">
+          CSS-tricks
+          {' '}
+          <Emoji label="cloun">🤡</Emoji>
+        </a>
+        <a target="_blank" rel="noreferrer noopener" href="https://www.codewars.com/users/maximakymenko">
+          Medium
+          {' '}
+          <Emoji label="Inteligent">👨🏻‍🔬</Emoji>
+        </a> */}
       </Links>
     </Layout>
   )
@@ -84,7 +94,7 @@ const Form = styled.form`
     font-size: 1rem;
     font-weight: bold;
     padding: 1rem;
-    color: ${({ theme }) => theme.primaryLight};
+    color: ${({ theme }) => theme.secondary};
     background: ${({ theme }) => theme.formGrey};
     border-radius: 5px;
     border: none;

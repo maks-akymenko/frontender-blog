@@ -1,39 +1,36 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const darkTheme = {
+const commonTheme = {
   mobile: '576px',
+  desktop: '1100px',
   ff: "'Nunito', sans-serif",
+  formGrey: '#91939526',
+  formGreyHover: '#FDFDFD26',
+  // toggle colors
+  lightBlue: '#83D8FF',
+  blue: '#749DD6',
+  darkYellow: '#E8CDA5',
+  white: '#FFF',
+}
+
+export const darkTheme = {
+  ...commonTheme,
   type: 'dark',
-  primaryDark: '#0C0F13',
-  primaryLight: '#C1C1C1',
+  primary: '#0C0F13',
+  secondary: '#C1C1C1',
   primaryGrey: '#8A8787',
   primaryYellow: '#FFCD42',
   primaryYellowHover: '#FFE59C',
-  formGrey: '#91939526',
-  formGreyHover: '#FDFDFD26',
-  // toggle colors
-  lightBlue: '#83D8FF',
-  blue: '#749DD6',
-  darkYellow: '#E8CDA5',
-  white: '#FFF',
 };
 
 export const lightTheme = {
-  mobile: '576px',
-  ff: "'Nunito', sans-serif",
+  ...commonTheme,
   type: 'light',
-  primaryDark: '#FFF',
-  primaryLight: '#0C0F13',
+  primary: '#FFF',
+  secondary: '#0C0F13',
   primaryGrey: '#8A8787',
   primaryYellow: '#FFCF4A',
   primaryYellowHover: '#C7AB5A',
-  formGrey: '#91939526',
-  formGreyHover: '#FDFDFD26',
-  // toggle colors
-  lightBlue: '#83D8FF',
-  blue: '#749DD6',
-  darkYellow: '#E8CDA5',
-  white: '#FFF',
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -48,13 +45,13 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${({ theme }) => theme.ff};
-    background: ${({ theme }) => theme.primaryDark};
-    color: ${({ theme }) => theme.primaryLight};
+    background: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.secondary};
     transition: background 0.3s ease-in, color 0.3s ease-in;
   }
 
   a {
-    color: ${({ theme }) => theme.primaryLight};
+    color: ${({ theme }) => theme.secondary};
   }
 
 `

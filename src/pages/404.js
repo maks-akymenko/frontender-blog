@@ -60,7 +60,7 @@ const Button = styled.div`
   }
 
   a {
-    color: ${({ theme }) => theme.primaryDark};
+    color: ${({ theme }) => theme.primary};
     text-decoration: none;
   }
 `

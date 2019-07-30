@@ -21,7 +21,7 @@ export const StyledMenu = styled.nav`
 
       text-decoration: none;
       background: ${({ theme }) => theme.primaryYellow};
-      color: ${({ theme }) => theme.primaryDark};
+      color: ${({ theme }) => theme.primary};
     }
   }
 `;

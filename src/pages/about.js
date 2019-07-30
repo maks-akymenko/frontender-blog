@@ -13,7 +13,7 @@ import "animate.css/animate.min.css";
 
 const About = ({ location }) => {
   const daysCount = differenceInCalendarDays(Date.now(), START_WORKING_DATE);
-  const hoursCount = daysCount * 1.5
+  const hoursCount = Math.round(daysCount * 1.5)
 
   return (
     <Layout location={location} title={ABOUT_PATH}>
@@ -109,7 +109,7 @@ const Description = styled.p`
 const Note = styled.div`
   padding: 0.25rem;
   margin: 0.5rem 0;
-  color: ${({ theme }) => theme.primaryLight};
+  color: ${({ theme }) => theme.secondary};
   background: ${({ theme }) => theme.formGrey};
   border-radius: 5px;
   text-align: center;
