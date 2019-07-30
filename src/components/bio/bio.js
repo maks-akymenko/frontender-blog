@@ -9,7 +9,7 @@ import { Flex, BioParagraph } from './bio.styled';
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/main-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/maks.jpg/" }) {
         childImageSharp {
           fixed(width: 75, height: 75) {
             ...GatsbyImageSharpFixed
