@@ -61,6 +61,7 @@ const About = ({ location }) => {
             <li><Emoji label="yoga">🧘🏼‍♂️</Emoji>remember about balance in everything. You can't learn or be productive 24/7 — it's okay to be lazy sometimes. Just don't get used to it </li>
             <li><Emoji label="sport">🏋🏼‍♂️</Emoji> do morning exercise every day — it fuels me up for the whole day!</li>
             <li><Emoji label="guy">💁🏻‍♂️</Emoji> learn one new thing every day.</li>
+            <li><Emoji label="speed">🚤</Emoji> listen almost everything on 2x speed.</li>
           </List>
         </ScrollAnimation>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
