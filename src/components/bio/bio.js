@@ -9,7 +9,7 @@ import { Flex, BioParagraph } from './bio.styled';
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/maks.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/maks.jpeg/" }) {
         childImageSharp {
           fixed(width: 75, height: 75) {
             ...GatsbyImageSharpFixed
@@ -20,7 +20,7 @@ const Bio = () => {
         siteMetadata {
           author
           social {
-            linkedin
+            twitter
           }
         }
       }
@@ -44,7 +44,7 @@ const Bio = () => {
       <BioParagraph>
         Created and designed by <strong>{author}</strong>, frontend developer based in Krakow, Poland <Emoji label="polish flag">🇵🇱</Emoji>.
         {` `}
-        <a target='_blank' rel='noopener noreferrer' href={`https://linkedin.com/in/${social.linkedin}`}>
+        <a target='_blank' rel='noopener noreferrer' href={`https://twitter.com/${social.twitter}`}>
           Say hello <Emoji label="hello">👋🏼</Emoji>
         </a>
       </BioParagraph>
