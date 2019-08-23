@@ -2,10 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `Frontender`,
     author: `Maks Akymenko`,
-    description: `Blog about frontend development.`,
+    description: `Blog about personal & frontend development.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      linkedin: `maksakymenko`,
+      twitter: `maks_akymenko`,
     },
   },
   plugins: [
