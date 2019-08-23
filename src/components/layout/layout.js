@@ -32,11 +32,11 @@ const Layout = ({ location, title, children }) => {
   }
 
   const [currentTheme, setCurrentTheme] = useState(
-    localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
+    typeof window !== 'undefined' && window.localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
   )
 
   useEffect(() => {
-    if (localStorage.getItem('theme') === LIGHT_THEME) {
+    if (typeof window !== 'undefined' && window.localStorage.getItem('theme') === LIGHT_THEME) {
       setCurrentTheme(lightTheme)
     } else {
       setCurrentTheme(darkTheme)
@@ -46,15 +46,16 @@ const Layout = ({ location, title, children }) => {
   const handleTheme = () => {
     if (currentTheme === lightTheme) {
       setCurrentTheme(darkTheme)
-      localStorage.setItem('theme', DARK_THEME)
+      typeof window !== 'undefined' && window.localStorage.setItem('theme', DARK_THEME)
     } else {
       setCurrentTheme(lightTheme)
-      localStorage.setItem('theme', LIGHT_THEME)
+      typeof window !== 'undefined' && window.localStorage.setItem('theme', LIGHT_THEME)
     }
   }
 
   const pickEmoji = title => {
     let emoji
+    console.log(title);
     switch (title) {
       case ABOUT_PATH:
         emoji = <Emoji label="me">🙋🏻‍♂</Emoji>
