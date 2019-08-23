@@ -12,23 +12,8 @@ const Contact = ({ location }) => {
       <SEO title={CONTACT_PATH} />
       <Menu />
       <Title>
-        Feel free to contact me if you have any ideas <Emoji label="idea">💡</Emoji>, thoughts <Emoji label="thoughts">💭</Emoji>, or just wanna say hi! <Emoji label="wave">👋🏼</Emoji>
+        Feel free to contact me if you have any ideas<Emoji label="idea">💡</Emoji>, thoughts <Emoji label="thoughts">💭</Emoji>,<a target="_blank" rel="noreferrer noopener" href="https://twitter.com/maks_akymenko"> or just wanna say hi! <Emoji label="wave">👋🏼 </Emoji></a>
       </Title>
-      <Form name="contact-me" method="POST" data-netlify="true">
-        <label htmlFor="name">Name
-        </label>
-        <input type="text" name="name" id="name" required />
-        <label htmlFor="email">Email
-        </label>
-        <input type="email" name="email" id="email" required />
-        <label htmlFor="subject">Subject
-        </label>
-        <input type="text" name="subject" id="subject" required />
-        <label htmlFor="message">Message
-        </label>
-        <textarea name="message" id="message" required />
-        <button type="submit">Send</button>
-      </Form>
       <Title>
         You can also find me here:
       </Title>
@@ -48,18 +33,18 @@ const Contact = ({ location }) => {
           {' '}
           <Emoji label="ninja">🦹🏽‍♂️</Emoji>
         </a>
-        {/* <a target="_blank" rel="noreferrer noopener" href="https://www.codewars.com/users/maximakymenko">
+        <a target="_blank" rel="noreferrer noopener" href="https://css-tricks.com/author/maksakymenko/">
           CSS-tricks
           {' '}
           <Emoji label="cloun">🤡</Emoji>
         </a>
-        <a target="_blank" rel="noreferrer noopener" href="https://www.codewars.com/users/maximakymenko">
+        <a target="_blank" rel="noreferrer noopener" href="https://medium.com/@maks.akymenko">
           Medium
           {' '}
           <Emoji label="Inteligent">👨🏻‍🔬</Emoji>
-        </a> */}
+        </a>
       </Links>
-    </Layout>
+    </Layout >
   )
 }
 
@@ -73,42 +58,13 @@ export default Contact
 
 const Title = styled.h2`
   font-size: 2rem;
-`
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  max-width: 25rem;
-  margin: 2rem 0;
-
-  label {
+  a {
+    text-decoration: none;
     color: ${({ theme }) => theme.primaryYellow};
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: left;
-    padding: 0.5rem;
-  }
-
-  input, textarea, button {
-    font-family: ${({ theme }) => theme.ff};
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 1rem;
-    color: ${({ theme }) => theme.secondary};
-    background: ${({ theme }) => theme.formGrey};
-    border-radius: 5px;
-    border: none;
-  }
-
-  button {
-    color: ${({ theme }) => theme.primaryYellow};
-    max-width: 15rem;
-    margin-top: 2rem;
-    transition: background 0.3s ease-in;
-    cursor: pointer;
 
     &:hover {
-      background: ${({ theme }) => theme.formGreyHover};
+      color: ${({ theme }) => theme.primaryYellowHover};
     }
   }
 `

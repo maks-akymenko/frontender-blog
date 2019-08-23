@@ -8,10 +8,10 @@ const Menu = () => (
     <Link to="/" activeClassName="active">
       Blog
     </Link>
-    <Link to="/about" activeClassName="active">
+    <Link to="/about/" activeClassName="active">
       About
     </Link>
-    <Link to="/contact" activeClassName="active">
+    <Link to="/contact/" activeClassName="active">
       Contact
     </Link>
   </StyledMenu>
