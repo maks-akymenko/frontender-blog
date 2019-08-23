@@ -4,13 +4,14 @@ const commonTheme = {
   mobile: '576px',
   desktop: '1100px',
   ff: "'Nunito', sans-serif",
-  formGrey: '#91939526',
-  formGreyHover: '#FDFDFD26',
+  formGrey: '#919395',
+  formGreyHover: '#FDFDFD',
   // toggle colors
   lightBlue: '#83D8FF',
   blue: '#749DD6',
   darkYellow: '#E8CDA5',
   white: '#FFF',
+  codeBlack: '#000',
 }
 
 export const darkTheme = {
@@ -54,4 +55,14 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.secondary};
   }
 
+  img {
+    width: 100%;
+  }
+
+  pre {
+    background: ${({ theme }) => theme.primaryYellow};
+    border-radius: 5px;
+    padding: 1rem;
+    color: ${({ theme }) => theme.codeBlack};
+  }
 `

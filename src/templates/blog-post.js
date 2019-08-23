@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import { Bio, BuyMeACoffee, Layout, SEO } from "src/components"
+import { Bio, Layout, SEO } from "src/components"
 
 import { Arrows, BackButton, Date, Description, Flex, ReadingTime, Title } from './blog-post.styled'
 
@@ -37,7 +37,7 @@ const BlogPostTemplate = ({ data, location, pageContext: { previous, next } }) =
       <Description dangerouslySetInnerHTML={{ __html: post.html }} />
       <hr />
       <Bio />
-      <BuyMeACoffee />
+      {/* <BuyMeACoffee /> */}
       <Arrows>
         <li>
           {previous && (
