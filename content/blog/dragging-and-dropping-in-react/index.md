@@ -1,7 +1,7 @@
 ---
 title: Draggin' & Droppin' in React!
 date: "2019-08-22T12:00:00.121Z"
-description: Building simple drag-n-drop app with React
+description: Tutorial about building an application with drag-n-drop functionality using `react-sortable-hoc` library
 ---
 
 # Draggin’ and Droppin’ in React
