@@ -107,9 +107,10 @@ const Layout = ({ location, title, children }) => {
           <header>{header}</header>
           <main>{children}</main>
           <Footer>
-            © {new Date().getFullYear()}, Maks Akymenko. Made with
+            © {new Date().getFullYear()},{` `} Maks Akymenko. Made with
           {` `}
             <Emoji label="heart">💛</Emoji>
+            <small>Source code is available <a target="_blank" rel="noopener noreferrer" href="https://github.com/maximakymenko/frontender-blog">here</a></small>
           </Footer>
         </Container>
       </>
