@@ -3,12 +3,11 @@ import styled from 'styled-components';
 export const StyledMenu = styled.nav`
   display: flex;
   justify-content: center;
-
   padding: 1rem 0;
 
   a {
+    margin: 0 0.5rem;
     padding: 0.3rem 0.5rem;
-
     color: ${({ theme }) => theme.primaryYellow};
     transition: color 0.3s ease-in;
 
@@ -18,7 +17,6 @@ export const StyledMenu = styled.nav`
 
     &.active {
       border-radius: 5px;
-
       text-decoration: none;
       background: ${({ theme }) => theme.primaryYellow};
       color: ${({ theme }) => theme.primary};

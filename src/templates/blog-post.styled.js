@@ -14,6 +14,10 @@ export const Date = styled.small`
 export const Title = styled.h1`
   font-size: 2.5rem;
 
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 1.25rem;
+  }
+
   letter-spacing: 0.15rem;
   text-transform: uppercase;
   color: ${({ theme }) => theme.primaryYellow};
@@ -39,12 +43,16 @@ export const Description = styled.p`
 `
 
 export const Arrows = styled.ul`
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   padding: 0;
+  flex-wrap: wrap;
+
+  li {
+    padding: 1rem;
+  }
 
   a {
     color: ${({ theme }) => theme.primaryYellow};

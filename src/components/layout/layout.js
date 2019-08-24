@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/globalStyles'
+import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/global'
 import { Toggle } from 'src/components'
 import { Emoji } from 'src/styles/Emoji'
 import { isMainPath } from 'src/utils'

@@ -2,35 +2,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Wrapper } from './toggle.styled'
 import { DARK_THEME } from 'src/shared/constants'
+import {
+  Crater,
+  Star,
+  Toggler,
+  ToggleInput,
+  ToggleHandler,
+  ToggleWrapper
+} from './toggle.styled'
 
 const Toggle = ({ handleTheme, activeTheme }) => {
   const isDarkTheme = activeTheme === DARK_THEME
 
   return (
-    <Wrapper>
-      <input
+    <ToggleWrapper>
+      <ToggleInput
         onChange={handleTheme}
         checked={isDarkTheme}
         type="checkbox"
         hidden
-        id="day-night"
+        id="toggler"
       />
-      <label htmlFor="day-night" className="toggle">
-        <span className="toggle__handler">
-          <span className="crater crater--1" />
-          <span className="crater crater--2" />
-          <span className="crater crater--3" />
-        </span>
-        <span className="star star--1" />
-        <span className="star star--2" />
-        <span className="star star--3" />
-        <span className="star star--4" />
-        <span className="star star--5" />
-        <span className="star star--6" />
-      </label>
-    </Wrapper>
+      <Toggler htmlFor="toggler">
+        <ToggleHandler>
+          <Crater />
+          <Crater />
+          <Crater />
+        </ToggleHandler>
+        <Star />
+        <Star />
+        <Star />
+        <Star />
+        <Star />
+        <Star />
+      </Toggler>
+    </ToggleWrapper>
   )
 }
 

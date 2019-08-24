@@ -77,6 +77,10 @@ export const pageQuery = graphql`
 const BlogPost = styled.div`
   margin: 3.5rem 0;
   padding: 0.5rem;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 0;
+  }
 `
 
 const Date = styled.small`
@@ -86,8 +90,11 @@ const Date = styled.small`
 
 const Title = styled.h3`
   font-size: 2.25rem;
-  letter-spacing: 0.15rem;
-  margin: 0;
+  margin: 1rem 0 0 0;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 1.5rem;
+  }
 
   a {
     color: ${({ theme }) => theme.primaryYellow};

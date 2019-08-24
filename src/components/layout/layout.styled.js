@@ -31,7 +31,7 @@ export const Footer = styled.footer`
 export const DesktopOnly = styled.div`
   display: none;
 
-  @media screen and (min-width: ${({ theme }) => theme.desktop}) {
+  @media (min-width: ${({ theme }) => theme.desktop}) {
     display: block;
   }
 `

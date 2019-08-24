@@ -4,8 +4,8 @@ const commonTheme = {
   mobile: '576px',
   desktop: '1100px',
   ff: "'Nunito', sans-serif",
-  formGrey: '#919395',
-  formGreyHover: '#FDFDFD',
+  formGrey: '#91939526',
+  formGreyHover: '#FDFDFD26',
   // toggle colors
   lightBlue: '#83D8FF',
   blue: '#749DD6',
@@ -64,5 +64,7 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 5px;
     padding: 1rem;
     color: ${({ theme }) => theme.codeBlack};
+    overflow-x: scroll;
+    user-select: all;
   }
 `
