@@ -25,23 +25,24 @@ const About = ({ location }) => {
         </Title>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
           <Description>
-            I am a frontend developer<Emoji label="programmer">👨🏻‍💻</Emoji> based in Cracow, Poland and I'm keen about personal development, but we'll talk about it later. I’ve been a full-time developer for almost 2 years ({daysCount} days). Oh, guys, I’ve worked on many cool projects during that time.
+            I am a frontend developer<Emoji label="programmer">👨🏻‍💻</Emoji> based in Cracow, Poland and I'm keen about personal development. I’ve been a full-time developer for almost 2 years ({daysCount} days).
           </Description>
         </ScrollAnimation>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
           <Description>
-            For some of you, it might not seem like that much <Emoji label="why">🤷🏼‍♂️</Emoji>. However, imagine if you spend every day averagely 1-2 hours to learn and practice something new — it's around {hoursCount} extra hours. Quite a lot, huh? <Emoji label="eyes">👀</Emoji>
+            For some of you, it might not seem that much <Emoji label="why">🤷🏼‍♂️</Emoji>. However, imagine if you spend every day averagely 1-2 hours to learn and practice something new — it's around {hoursCount} extra hours. Quite a lot, huh? <Emoji label="eyes">👀</Emoji>
           </Description>
         </ScrollAnimation>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
           <Note>
             <Description>
               <Emoji label="bulb">💡</Emoji>
-              Do not think I've counted it, I just know JavaScript!
+              Do not think I've counted it so precisely, I just know JavaScript!
             </Description>
           </Note>
           <Description>
-            What else? I could probably call myself a writer <Emoji label="writer">📝</Emoji>, I certainly am if you are here in my blog reading this!
+            What else? I could probably call myself a writer <Emoji label="writer">📝</Emoji>, I certainly am if you are here in my blog reading this! I also write on <a target="_blank" rel="noreferrer noopener" href="https://medium.com/@maks.akymenko">
+              Medium</a> and <a target="_blank" rel="noreferrer noopener" href="https://css-tricks.com/author/maksakymenko/">CSS-tricks</a>
           </Description>
           <Description>
             I travel a lot, can't imagine a month without going somewhere <Emoji label="planet">🗺</Emoji>, and I do love technologies in all their kinds. Hi <Emoji label="hi">👋🏼</Emoji>, smart houses, biohacking and self-driving cars! <Emoji label="car">🚗</Emoji>
@@ -52,17 +53,20 @@ const About = ({ location }) => {
         </ScrollAnimation>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
           <Description bold>
-            What I do that makes me productive:
+            List of my personal productivity tips:
             </Description>
           <List>
-            <li><Emoji label="sunrise">🌄</Emoji> wake up around 6:40.</li>
+            <li><Emoji label="tool">🛠</Emoji> practice what you've just learned.</li>
             <li><Emoji label="audiobooks">🎶</Emoji> listen to audiobooks while going somewhere.</li>
-            <li><Emoji label="phone in hand">🤳🏼</Emoji> filter content a lot, either it is YouTube or any social network.</li>
+            <li><Emoji label="phone in hand">🤳🏼</Emoji> filter content, either it is YouTube or any social network.</li>
             <li><Emoji label="yoga">🧘🏼‍♂️</Emoji>remember about balance in everything. You can't learn or be productive 24/7 — it's okay to be lazy sometimes. Just don't get used to it </li>
-            <li><Emoji label="sport">🏋🏼‍♂️</Emoji> do morning exercise every day — it fuels me up for the whole day!</li>
+            <li><Emoji label="sport">🏋🏼‍♂️</Emoji> do morning exercise and sport every day!</li>
             <li><Emoji label="guy">💁🏻‍♂️</Emoji> learn one new thing every day.</li>
-            <li><Emoji label="speed">🚤</Emoji> listen almost everything on 2x speed.</li>
+            <li><Emoji label="speed">🚤</Emoji> listen audio or watch video on 2x speed.</li>
           </List>
+          <Description bold>
+            You can read more <Link to="/how-i-boost-my-productivity-as-a-programmer">here</Link>
+          </Description>
         </ScrollAnimation>
         <ScrollAnimation animateOnce animateIn="fadeInUp">
           <Description bold>
@@ -77,9 +81,9 @@ const About = ({ location }) => {
             <li><span>Scanner Mini</span>. We all do scans sometimes.</li>
             <li><span>Wifi Map</span>. Map with available wifi nearby. Sometimes could be very useful.</li>
           </List>
-          <Description>
-            Yep, that's it. Thank you very much if you read up until this point <Emoji label="bow">🙇🏻‍♂️</Emoji>! Now have a nice whatever part of the day you have and feel free to <Link to="/contact">contact me</Link>.
-            </Description>
+          <Description bold>
+            Have a nice day <Emoji label="sun">🌞</Emoji>
+          </Description>
         </ScrollAnimation>
       </AboutMe>
     </Layout>
@@ -105,6 +109,10 @@ const Title = styled.h2`
 const Description = styled.p`
   font-size: 1.1rem;
   font-weight: ${({ bold }) => bold ? 'bold' : 'normal'};
+
+  a {
+    color: ${({ theme }) => theme.primaryYellow};
+  }
   `
 
 const Note = styled.div`
@@ -118,9 +126,11 @@ const Note = styled.div`
   @media (min-width: ${({ theme }) => theme.mobile}) {
     text-align: left;
   }
-  `
+`
 
 const List = styled.ul`
+  padding-left: 1.5rem;
+
   li {
   font-size: 1.1rem;
   margin: 1rem 0;
