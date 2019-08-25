@@ -32,21 +32,21 @@ const Layout = ({ location, title, children }) => {
   }
 
   const [currentTheme, setCurrentTheme] = useState(
-    localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
+    typeof window !== 'undefined' && localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
   )
 
   const handleTheme = () => {
     if (currentTheme === lightTheme) {
       setCurrentTheme(darkTheme)
-      localStorage.setItem('theme', darkTheme)
+      typeof window !== 'undefined' && localStorage.setItem('theme', darkTheme)
     } else {
       setCurrentTheme(lightTheme)
-      localStorage.setItem('theme', lightTheme)
+      typeof window !== 'undefined' && localStorage.setItem('theme', lightTheme)
     }
   }
 
   useEffect(() => {
-    localStorage.getItem('theme') === LIGHT_THEME ? setCurrentTheme(lightTheme) : setCurrentTheme(darkTheme)
+    typeof window !== 'undefined' && localStorage.getItem('theme') === LIGHT_THEME ? setCurrentTheme(lightTheme) : setCurrentTheme(darkTheme)
   }, currentTheme)
 
   const pickEmoji = title => {
