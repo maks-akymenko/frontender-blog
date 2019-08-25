@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
@@ -43,7 +43,6 @@ const Layout = ({ location, title, children }) => {
 
   const pickEmoji = title => {
     let emoji
-    console.log(title);
     switch (title) {
       case ABOUT_PATH:
         emoji = <Emoji label="me">🙋🏻‍♂</Emoji>
