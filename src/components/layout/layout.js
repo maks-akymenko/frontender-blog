@@ -8,7 +8,7 @@ import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/global'
 import { Toggle } from 'src/components'
 import { Emoji } from 'src/styles/Emoji'
 import { isMainPath } from 'src/utils'
-import { DARK_THEME, LIGHT_THEME, CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
+import { CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
 
 import { Container, DesktopOnly, Footer, Header } from './layout.styled'
 
@@ -31,25 +31,13 @@ const Layout = ({ location, title, children }) => {
     right: 0,
   }
 
-  const [currentTheme, setCurrentTheme] = useState(
-    typeof window !== 'undefined' && window.localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
-  )
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.localStorage.getItem('theme') === LIGHT_THEME) {
-      setCurrentTheme(lightTheme)
-    } else {
-      setCurrentTheme(darkTheme)
-    }
-  }, currentTheme)
+  const [currentTheme, setCurrentTheme] = useState(lightTheme)
 
   const handleTheme = () => {
     if (currentTheme === lightTheme) {
       setCurrentTheme(darkTheme)
-      typeof window !== 'undefined' && window.localStorage.setItem('theme', DARK_THEME)
     } else {
       setCurrentTheme(lightTheme)
-      typeof window !== 'undefined' && window.localStorage.setItem('theme', LIGHT_THEME)
     }
   }
 
