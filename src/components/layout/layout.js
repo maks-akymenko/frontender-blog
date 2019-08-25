@@ -38,10 +38,10 @@ const Layout = ({ location, title, children }) => {
   const handleTheme = () => {
     if (currentTheme === lightTheme) {
       setCurrentTheme(darkTheme)
-      typeof window !== 'undefined' && localStorage.setItem('theme', darkTheme)
+      typeof window !== 'undefined' && localStorage.setItem('theme', DARK_THEME)
     } else {
       setCurrentTheme(lightTheme)
-      typeof window !== 'undefined' && localStorage.setItem('theme', lightTheme)
+      typeof window !== 'undefined' && localStorage.setItem('theme', LIGHT_THEME)
     }
   }
 
