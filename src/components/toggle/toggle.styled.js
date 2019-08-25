@@ -163,7 +163,7 @@ export const ToggleWrapper = styled.div`
 
       ${ToggleHandler} {
         background-color: ${({ theme }) => theme.primaryYellowHover};
-        transform: translate3d(40px, 0, 0) rotate(0);
+        transform: translate3d(42px, 0, 0) rotate(0);
 
         ${Crater} { opacity: 1; }
       }
