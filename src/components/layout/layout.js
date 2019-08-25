@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
@@ -8,7 +8,7 @@ import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/global'
 import { Toggle } from 'src/components'
 import { Emoji } from 'src/styles/Emoji'
 import { isMainPath } from 'src/utils'
-import { CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
+import { LIGHT_THEME, DARK_THEME, CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
 
 import { Container, DesktopOnly, Footer, Header } from './layout.styled'
 
@@ -31,15 +31,23 @@ const Layout = ({ location, title, children }) => {
     right: 0,
   }
 
-  const [currentTheme, setCurrentTheme] = useState(lightTheme)
+  const [currentTheme, setCurrentTheme] = useState(
+    localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
+  )
 
   const handleTheme = () => {
     if (currentTheme === lightTheme) {
       setCurrentTheme(darkTheme)
+      localStorage.setItem('theme', darkTheme)
     } else {
       setCurrentTheme(lightTheme)
+      localStorage.setItem('theme', lightTheme)
     }
   }
+
+  useEffect(() => {
+    localStorage.getItem('theme') === LIGHT_THEME ? setCurrentTheme(lightTheme) : setCurrentTheme(darkTheme)
+  }, currentTheme)
 
   const pickEmoji = title => {
     let emoji
