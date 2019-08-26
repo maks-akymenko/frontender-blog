@@ -16,7 +16,7 @@ export const ToggleContainer = styled.div`
 
   svg {
     width: 2.5rem;
-    height: auto;
+    height: 2rem;
     transition: all 0.3s linear;
 
     &:first-child {
