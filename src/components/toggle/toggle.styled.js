@@ -20,11 +20,11 @@ export const ToggleContainer = styled.div`
     transition: all 0.3s linear;
 
     &:first-child {
-      transform: ${({ lightTheme }) => lightTheme ? 'translateY(0)' : 'translateY(100px)'};
+      transform: ${({ lightTheme }) => lightTheme ? 'translateX(0)' : 'translateX(-100px)'};
     }
 
     &:nth-child(2) {
-      transform: ${({ lightTheme }) => lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
+      transform: ${({ lightTheme }) => lightTheme ? 'translateX(100px)' : 'translateX(0)'};
     }
   }
 `;
