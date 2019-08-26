@@ -1,50 +1,25 @@
-/* inspired by A PEN BY Benjamin Réthoré https://codepen.io/bnthor/pen/WQBNxO */
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-import { DARK_THEME } from 'src/shared/constants'
-import {
-  Crater,
-  Star,
-  Toggler,
-  ToggleInput,
-  ToggleHandler,
-  ToggleWrapper
-} from './toggle.styled'
+import { ToggleContainer } from './toggle.styled';
 
-const Toggle = ({ handleTheme, activeTheme }) => {
-  const isDarkTheme = activeTheme === DARK_THEME
+import MoonIcon from 'src/icons/moon.inline.svg';
+import SunIcon from 'src/icons/sun.inline.svg';
+
+const toggle = ({ theme, toggleTheme }) => {
+  const isLight = theme === 'light';
 
   return (
-    <ToggleWrapper>
-      <ToggleInput
-        onChange={handleTheme}
-        checked={isDarkTheme}
-        type="checkbox"
-        hidden
-        id="toggler"
-      />
-      <Toggler htmlFor="toggler">
-        <ToggleHandler>
-          <Crater />
-          <Crater />
-          <Crater />
-        </ToggleHandler>
-        <Star />
-        <Star />
-        <Star />
-        <Star />
-        <Star />
-        <Star />
-      </Toggler>
-    </ToggleWrapper>
-  )
+    <ToggleContainer lightTheme={isLight} onClick={toggleTheme} >
+      <SunIcon />
+      <MoonIcon />
+    </ToggleContainer>
+  );
+};
+
+toggle.propTypes = {
+  toggleTheme: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequired,
 }
 
-Toggle.propTypes = {
-  handleTheme: PropTypes.func.isRequired,
-  activeTheme: PropTypes.string.isRequired,
-}
-
-export default Toggle
-
+export default toggle;

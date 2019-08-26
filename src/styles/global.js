@@ -22,6 +22,8 @@ export const darkTheme = {
   primaryGrey: '#8A8787',
   primaryYellow: '#FFCD42',
   primaryYellowHover: '#FFE59C',
+  toggleBorder: '#6B8096',
+  gradient: 'linear-gradient(#091236, #1E215D)',
 };
 
 export const lightTheme = {
@@ -32,6 +34,8 @@ export const lightTheme = {
   primaryGrey: '#8A8787',
   primaryYellow: '#FFCF4A',
   primaryYellowHover: '#C7AB5A',
+  toggleBorder: '#fff',
+  gradient: 'linear-gradient(#39598A, #79D7ED)',
 };
 
 export const GlobalStyles = createGlobalStyle`

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
@@ -8,7 +8,8 @@ import { GlobalStyles, darkTheme, lightTheme } from 'src/styles/global'
 import { Toggle } from 'src/components'
 import { Emoji } from 'src/styles/Emoji'
 import { isMainPath } from 'src/utils'
-import { LIGHT_THEME, DARK_THEME, CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
+import { useDarkMode } from 'src/utils/hooks'
+import { CONTACT_PATH, ABOUT_PATH } from 'src/shared/constants'
 
 import { Container, DesktopOnly, Footer, Header } from './layout.styled'
 
@@ -31,23 +32,8 @@ const Layout = ({ location, title, children }) => {
     right: 0,
   }
 
-  const [currentTheme, setCurrentTheme] = useState(
-    typeof window !== 'undefined' && localStorage.getItem('theme') === LIGHT_THEME ? lightTheme : darkTheme
-  )
-
-  const handleTheme = () => {
-    if (currentTheme === lightTheme) {
-      setCurrentTheme(darkTheme)
-      typeof window !== 'undefined' && localStorage.setItem('theme', DARK_THEME)
-    } else {
-      setCurrentTheme(lightTheme)
-      typeof window !== 'undefined' && localStorage.setItem('theme', LIGHT_THEME)
-    }
-  }
-
-  useEffect(() => {
-    typeof window !== 'undefined' && localStorage.getItem('theme') === LIGHT_THEME ? setCurrentTheme(lightTheme) : setCurrentTheme(darkTheme)
-  }, currentTheme)
+  const [theme, toggleTheme] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const pickEmoji = title => {
     let emoji
@@ -87,7 +73,7 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={themeMode}>
       <>
         <DesktopOnly>
           <Image
@@ -98,7 +84,7 @@ const Layout = ({ location, title, children }) => {
         </DesktopOnly>
         <Container>
           <GlobalStyles />
-          <Toggle handleTheme={handleTheme} activeTheme={currentTheme.type} />
+          <Toggle theme={theme} toggleTheme={toggleTheme} />
           <header>{header}</header>
           <main>{children}</main>
           <Footer>
