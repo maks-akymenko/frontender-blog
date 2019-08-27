@@ -8,7 +8,6 @@ import SunIcon from 'src/icons/sun.inline.svg'
 
 const toggle = ({ theme, toggleTheme }) => {
   const isLight = theme === LIGHT_THEME
-  console.log(isLight);
 
   return (
     <ToggleContainer lightTheme={isLight} onClick={toggleTheme} >
