@@ -79,5 +79,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-root-import`,
+    `gatsby-plugin-remove-serviceworker`,
   ],
 }
