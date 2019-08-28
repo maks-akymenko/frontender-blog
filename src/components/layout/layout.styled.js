@@ -27,8 +27,10 @@ export const Header = styled.h1`
 export const Footer = styled.footer`
   text-align: center;
 
-  small {
-    display: block;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    small {
+      display: block;
+    }
   }
 `
 

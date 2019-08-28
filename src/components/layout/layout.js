@@ -90,8 +90,12 @@ const Layout = ({ location, title, children }) => {
           <Footer>
             © {new Date().getFullYear()},{` `} Maks Akymenko. Made with
           {` `}
-            <Emoji label="heart">💛</Emoji>
+            <Emoji label="heart">💛</Emoji>{` `}
             <small>Source code is available <a target="_blank" rel="noopener noreferrer" href="https://github.com/maximakymenko/frontender-blog">here</a></small>
+            <div>
+              <small><b>Sun</b> icon made by <a href="https://www.flaticon.com/authors/smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com">www.flaticon.com</a></small>{` `}{` `}
+              <small><b>Moon</b> icon made by <a href="https://www.freepik.com/home">Freepik</a> from <a href="https://www.flaticon.com">www.flaticon.com</a></small>
+            </div>
           </Footer>
         </Container>
       </>
