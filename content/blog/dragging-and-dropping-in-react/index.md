@@ -173,7 +173,7 @@ It's time to wrap our GIFs into the `SortableGifsContainer` and replace the `Gif
 ---
 💡It’s important to note that you need to pass the index prop to your sortable element so the library can differentiate items. It's similar to [adding keys to the lists in React](https://reactjs.org/docs/lists-and-keys.html)
 
-💡Drag-n-drop issue in Firefox. To prevent buggy behaviour in Firefox browser, you need to add a `onSortStart` function to your SortableContainer and prevent the default event. There is an (issue)[https://github.com/clauderic/react-sortable-hoc/issues/253].
+💡Drag-n-drop issue in Firefox. To prevent buggy behaviour in Firefox browser, you need to add a `onSortStart` function to your SortableContainer and prevent the default event. There is an [issue](https://github.com/clauderic/react-sortable-hoc/issues/253).
 
 ---
 We add `axis` because our items are positioned horizontally and we want to drag them horizontally, while default is vertical dragging. In other words, we’re limiting dragging along the horizontal x-axis. As you can see we also add an `onSortEnd` function, which triggers every time we drag or sort our items around. There are, of course, a lot more events but you can find more info in [](https://github.com/clauderic/react-sortable-hoc)[documentation](https://github.com/clauderic/react-sortable-hoc) which already does an excellent job of covering them.
