@@ -14,7 +14,7 @@ function SEO({ description, lang, meta, title }) {
             author
           }
         }
-        ogImage: file(absolutePath: { regex: "/website-image.jpg/" }) {
+        ogImage: file(absolutePath: { regex: "/website_image.png/" }) {
           childImageSharp {
             fixed(width: 1200, height: 630) {
               ...GatsbyImageSharpFixed
